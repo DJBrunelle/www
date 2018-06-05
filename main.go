@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"text/template"
 )
 
@@ -32,11 +33,12 @@ func hireMe(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	println(os.Getenv("PORT"))
 	http.HandleFunc("/", index)              // setting router rule
 	http.HandleFunc("/about", index)         // setting router rule
 	http.HandleFunc("/projects", projects)   // setting router rule
 	http.HandleFunc("/hire_me", hireMe)      // setting router rule
-	err := http.ListenAndServe(":9090", nil) // setting listening port
+	err := http.ListenAndServe(":5000", nil) // setting listening port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
