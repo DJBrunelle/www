@@ -11,6 +11,14 @@
 		<a href="/projects">Projects</a>
 		<a href="/hire_me">Hire Me</a>
 	</nav>
+
+	{{range .Repos}}
+	<div>
+		<h3>{{.Name}}</h3>
+		<h4>{{.Description}}</h4>
+		<a href="{{ (index .Commits 0).URL }}">{{ (index .Commits 0).Commit.Message }}</a>
+	</div>
+	{{end}}
 </body>
 
 </html>
