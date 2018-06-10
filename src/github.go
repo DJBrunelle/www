@@ -69,7 +69,6 @@ func GetUser(name string) (user User, err error) {
 	for ii := 0; ii < len(user.Repos); ii++ {
 		cURL := user.Repos[ii].CommitsURL[:len(user.Repos[ii].CommitsURL)-6]
 		body, err = getAPIResponse(cURL)
-		println(cURL)
 		if err != nil {
 			return user, err
 		}

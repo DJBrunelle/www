@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"text/template"
+	"www/src"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
@@ -18,8 +19,12 @@ func index(w http.ResponseWriter, r *http.Request) {
 func projects(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
 	if r.Method == "GET" {
+		user, err := github.GetUser("DJBrunelle")
+		if err != nil {
+			println("Unable to get user")
+		}
 		t, _ := template.ParseFiles("views/html/projects.html")
-		t.Execute(w, nil)
+		t.Execute(w, user)
 	}
 }
 
