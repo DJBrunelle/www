@@ -56,7 +56,7 @@ func GetUser(name string) (user User, err error) {
 		return user, err
 	}
 
-	body, err = getAPIResponse("https://api.github.com/users/" + url.QueryEscape(name) + "/repos")
+	body, err = getAPIResponse("https://api.github.com/users/" + url.QueryEscape(name) + "/repos?sort=updated")
 	if err != nil {
 		return user, err
 	}

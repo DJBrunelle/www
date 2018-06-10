@@ -13,11 +13,13 @@
 	</nav>
 
 	{{range .Repos}}
-	<div>
-		<h3>{{.Name}}</h3>
-		<h4>{{.Description}}</h4>
-		<a href="{{ (index .Commits 0).URL }}">{{ (index .Commits 0).Commit.Message }}</a>
-	</div>
+	<a href={{.URL}}>
+		<div>
+			<h3>{{.Name}}</h3>
+			<h4>{{.Description}}</h4>
+			<a href="{{ (index .Commits 0).URL }}">{{ (index .Commits 0).Commit.Message }}</a>
+		</div>
+	</a>
 	{{end}}
 </body>
 
