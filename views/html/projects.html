@@ -12,32 +12,18 @@
 		<a href="/hire_me">Hire Me</a>
 	</nav>
 
-	<header>
-		<!--Testing my website -->
-	</header>
-
-	<main>
-		<section>
-			{{range .Repos}}
-			<hr>
-
-			<div>
-				<h3>{{.Language}}</h3>
-				<a href={{.URL}}>
-					<h3>{{.Name}}</h3>
-				</a>
-				<h4>{{.Description}}</h4>
-				<a href="{{ (index .Commits 0).URL }}">{{ (index .Commits 0).Commit.Message }}</a>
-			</div>
-
-			{{end}}
-		</section>
-	</main>
-
-	<footer>
-
-	</footer>
-
+	{{range .Repos}}
+	<div>
+		<h3>{{.Name}}</h3>
+		<h4>{{.Description}}</h4>
+		<ol>
+			{{range $i, $val := .Commits}} {{if lt $i 3}}
+			<li>
+				<a href="{{$val.URL}}">{{ $val.Commit.Message }}</a>
+			</li>{{end}} {{end}}
+		</ol>
+	</div>
+	{{end}}
 </body>
 
 </html>
