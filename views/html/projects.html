@@ -16,7 +16,12 @@
 	<div>
 		<h3>{{.Name}}</h3>
 		<h4>{{.Description}}</h4>
-		<a href="{{ (index .Commits 0).URL }}">{{ (index .Commits 0).Commit.Message }}</a>
+		<ol>
+			{{range $i, $val := .Commits}} {{if lt $i 3}}
+			<li>
+				<a href="{{$val.URL}}">{{ $val.Commit.Message }}</a>
+			</li>{{end}} {{end}}
+		</ol>
 	</div>
 	{{end}}
 </body>
