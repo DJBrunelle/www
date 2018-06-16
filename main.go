@@ -42,10 +42,11 @@ func hireMe(w http.ResponseWriter, r *http.Request) {
 
 //Set up routes and open port to listen for requests
 func main() {
-	http.HandleFunc("/", index)                            // setting router rule
-	http.HandleFunc("/about", index)                       // setting router rule
-	http.HandleFunc("/projects", projects)                 // setting router rule
-	http.HandleFunc("/hire_me", hireMe)                    // setting router rule
+	http.HandleFunc("/", index)            // setting router rule
+	http.HandleFunc("/about", index)       // setting router rule
+	http.HandleFunc("/projects", projects) // setting router rule
+	http.HandleFunc("/hire_me", hireMe)    // setting router rule
+	http.Handle("/views/css/", http.StripPrefix("/views/css/", http.FileServer(http.Dir("views/css"))))
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil) // setting listening port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
