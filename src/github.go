@@ -88,7 +88,7 @@ func GetUser(name string) (user User, err error) {
 
 		for ii := 0; ii < len(commits); ii++ {
 			t, _ := time.Parse("2006-01-02T15:04:05Z", commits[ii].Commit.Author.Date)
-			commits[ii].Commit.Author.Date = t.In(loc).Format(time.RFC1123)
+			commits[ii].Commit.Author.Date = t.In(loc).Format("Mon Jan 2, 15:04 MST 2006")
 		}
 	}
 
