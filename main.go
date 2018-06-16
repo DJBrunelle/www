@@ -9,6 +9,7 @@ import (
 	"www/src"
 )
 
+//Index route handler
 func index(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
 	if r.Method == "GET" {
@@ -17,6 +18,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+//Projects route handler
 func projects(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
 	if r.Method == "GET" {
@@ -29,6 +31,7 @@ func projects(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+//HireMe route handler
 func hireMe(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
 	if r.Method == "GET" {
@@ -37,6 +40,7 @@ func hireMe(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+//Set up routes and open port to listen for requests
 func main() {
 	http.HandleFunc("/", index)                            // setting router rule
 	http.HandleFunc("/about", index)                       // setting router rule
