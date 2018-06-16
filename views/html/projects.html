@@ -25,12 +25,27 @@
 					<h3>{{.Name}}</h3>
 				</a>
 				<h4>{{.Description}}</h4>
+
 				<ol>
 					{{range $i, $val := .Commits}} {{if lt $i 3}}
+
 					<li>
-						<a href="{{$val.URL}}">{{ $val.Commit.Message }}</a>
-					</li>{{end}} {{end}}
+						<div>
+							<a href="{{$val.URL}}">
+								<b>Commit:</b> {{$val.Sha}}
+							</a>
+							<br>
+							<b>Author:</b> {{$val.Commit.Author.Name}}
+							<br>
+							<b>Message:</b> {{ $val.Commit.Message }}
+							<br>
+							<b>Date:</b> {{$val.Commit.Author.Date}}
+						</div>
+					</li>
+					{{end}} {{end}}
+
 				</ol>
+
 			</div>
 			{{end}}
 		</section>

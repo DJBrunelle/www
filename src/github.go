@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 )
 
 //User represents a github user
@@ -37,6 +38,7 @@ type GitCommit struct {
 			Name  string `json:"name"`
 			Email string `json:"email"`
 			Date  string `json:"date"`
+			FDate string
 		}
 		Message string `json:"message"`
 	}
@@ -76,6 +78,17 @@ func GetUser(name string) (user User, err error) {
 		err = json.Unmarshal(body, &user.Repos[ii].Commits)
 		if err != nil {
 			return user, err
+		}
+		commits := user.Repos[ii].Commits
+
+		loc, err := time.LoadLocation("Canada/Mountain")
+		if err != nil {
+			return user, err
+		}
+
+		for ii := 0; ii < len(commits); ii++ {
+			t, _ := time.Parse("2006-01-02T15:04:05Z", commits[ii].Commit.Author.Date)
+			commits[ii].Commit.Author.Date = t.In(loc).Format(time.RFC1123)
 		}
 	}
 
