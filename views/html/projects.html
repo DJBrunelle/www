@@ -13,16 +13,16 @@
 	</nav>
 	{{range .Repos}}
 	<hr>
-	<div>
-		<h3>{{.Language}}</h3>
+	<div class="repo">
+		<h3 class="language">{{.Language}}</h3>
 		<a href={{.URL}}>
-			<h3>{{.Name}}</h3>
+			<h3 class="repo-name">{{.Name}}</h3>
 		</a>
-		<h4>{{.Description}}</h4>
+		<h4 class="description">{{.Description}}</h4>
 		<ol>
 			{{range $i, $val := .Commits}} {{if lt $i 3}}
 			<li>
-				<div>
+				<div class="commit">
 					<a href="{{$val.URL}}">
 						<b>Commit:</b> {{ $val.Commit.Message }}
 					</a>
