@@ -6,29 +6,37 @@
  * #F2E9E4 = Alabaster
  */
 
-
-
-
 header, footer{
-	background: #22223b;
+	background: #4A4E69;
 }
 
+main{
+	background: #9A8C98
+}
+
+.repo:hover{
+	border: 2px solid black;
+}
 .repo{
+	height: 400px;
+	width: 400px;
+	border: 1px solid black; 
 	display: inline-block;
+	vertical-align:top;
 }
 
 .CSharp{
-	background: green;
+	background: #16860041;
 }
 
 .Go{
-	background: blue;
+	background: #375eab31;
 }
 
 .Ruby{
-	background: red;
+	background: #7015163b;
 }
 
 .Python{
-	background: yellow;
+	background: rgba(53, 115, 165, 0.185);
 }
