@@ -24,6 +24,7 @@ type GitRepo struct {
 	Description string `json:"description"`
 	CommitsURL  string `json:"commits_url"`
 	Language    string `json:"language"`
+	EscLanguage string
 	CreatedAt   string `json:"created_at"`
 	UpdatedAt   string `json:"updated_at"`
 	Commits     []GitCommit
@@ -74,6 +75,12 @@ func GetUser(name string) (user User, err error) {
 
 	//Get a list of commits for each repository
 	for ii := 0; ii < len(user.Repos); ii++ {
+		if user.Repos[ii].Language == "C#" {
+			user.Repos[ii].EscLanguage = "CSharp"
+		} else {
+			user.Repos[ii].EscLanguage = user.Repos[ii].Language
+		}
+
 		//Get commits URL from repo JSON feed
 		cURL := user.Repos[ii].CommitsURL[:len(user.Repos[ii].CommitsURL)-6]
 		body, err = getAPIResponse(cURL)
