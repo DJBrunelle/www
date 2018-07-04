@@ -1,3 +1,42 @@
-div{
-	
+/*
+ * #22223B = Dark Purple
+ * #4A4E69 = Purple-Gray
+ * #9A8C98 = Spanish Gray
+ * #C9ADA7 = Silver pink
+ * #F2E9E4 = Alabaster
+ */
+
+header, footer{
+	background: #4A4E69;
+}
+
+main{
+	background: #9A8C98
+}
+
+.repo:hover{
+	border: 2px solid black;
+}
+.repo{
+	height: 400px;
+	width: 400px;
+	border: 1px solid black; 
+	display: inline-block;
+	vertical-align:top;
+}
+
+.CSharp{
+	background: #16860041;
+}
+
+.Go{
+	background: #375eab31;
+}
+
+.Ruby{
+	background: #7015163b;
+}
+
+.Python{
+	background: rgba(53, 115, 165, 0.185);
 }
