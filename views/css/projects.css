@@ -6,12 +6,16 @@
  * #F2E9E4 = Alabaster
  */
 
-header, footer{
+body{
 	background: #4A4E69;
 }
 
+/* header, footer{
+	background: #4A4E69;
+} */
+
 main{
-	background: #9A8C98
+	background: #9A8C98;
 }
 
 .repo:hover{
