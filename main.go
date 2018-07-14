@@ -42,7 +42,7 @@ func hireMe(w http.ResponseWriter, r *http.Request) {
 
 //Set up routes and open port to listen for requests
 func main() {
-	http.HandleFunc("/", index)            // setting router rule
+	http.HandleFunc("/", projects)         // setting router rule
 	http.HandleFunc("/about", index)       // setting router rule
 	http.HandleFunc("/projects", projects) // setting router rule
 	http.HandleFunc("/hire_me", hireMe)    // setting router rule
